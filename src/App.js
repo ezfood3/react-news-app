@@ -1,24 +1,42 @@
-import logo from './logo.svg';
-import './App.css';
+import React, { useState } from "react";
+import axios from "axios";
 
 function App() {
+  const [todo, setTodo] = useState(null);
+
+  // const onClick = (e) => { // Promise
+  //   axios.get("https://jsonplaceholder.typicode.com/todos/1").then((res) => {
+  //     setTodo(res.data);
+  //   });
+  // };
+
+  const onClick = async (e) => {
+    // async / await
+    try {
+      const res = await axios.get(
+        // https://newsapi.org/v2/top-headlines?country=kr&apiKey=596090be385a4779a0e02804a3699209
+        "https://newsapi.org/v2/top-headlines?country=kr&category=sports&apiKey=596090be385a4779a0e02804a3699209"
+      );
+      setTodo(res.data);
+    } catch (err) {
+      console.error(err);
+    }
+  };
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
+    <>
+      <div>
+        <div>
+          <button onClick={onClick}>todo 정보 로드</button>
+        </div>
+        {todo && (
+          <textarea
+            rows={7}
+            value={JSON.stringify(todo, null, 2)}
+            readOnly={true}
+          ></textarea>
+        )}
+      </div>
+    </>
   );
 }
 
