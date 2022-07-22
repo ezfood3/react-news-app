@@ -22,3 +22,7 @@
 - `https://newsapi.org/v2/top-headlines?country=kr&apiKey=596090be385a4779a0e02804a3699209`
 - `https://newsapi.org/v2/top-headlines?country=kr&category=sports&apiKey=596090be385a4779a0e02804a3699209`
 - category: sports, business, entertainment, health, science, technology
+- country: kr, jp, ...
+
+# 추가 셋팅
+- yarn add styled-components
