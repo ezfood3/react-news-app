@@ -24,5 +24,6 @@
 - category: sports, business, entertainment, health, science, technology
 - country: kr, jp, ...
 
+
 # 추가 셋팅
 - yarn add styled-components
